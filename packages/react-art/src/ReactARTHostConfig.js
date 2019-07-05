@@ -347,7 +347,7 @@ export function shouldSetTextContent(type, props) {
 export const isPrimaryRenderer = false;
 
 // The ART renderer shouldn't trigger missing act() warnings
-export const shouldWarnUnactedUpdates = false;
+export const warnsIfNotActing = false;
 
 export const supportsMutation = true;
 
@@ -441,31 +441,6 @@ export function updateEventComponent(
 
 export function unmountEventComponent(
   eventComponentInstance: ReactEventComponentInstance<any, any, any>,
-): void {
-  throw new Error('Not yet implemented.');
-}
-
-export function getEventTargetChildElement(
-  type: Symbol | number,
-  props: Props,
-): null {
-  throw new Error('Not yet implemented.');
-}
-
-export function handleEventTarget(
-  type: Symbol | number,
-  props: Props,
-  rootContainerInstance: Container,
-  internalInstanceHandle: Object,
-): boolean {
-  throw new Error('Not yet implemented.');
-}
-
-export function commitEventTarget(
-  type: Symbol | number,
-  props: Props,
-  instance: Instance,
-  parentInstance: Instance,
 ): void {
   throw new Error('Not yet implemented.');
 }

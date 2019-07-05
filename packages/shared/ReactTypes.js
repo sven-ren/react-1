@@ -14,8 +14,7 @@ export type ReactNode =
   | ReactFragment
   | ReactProvider<any>
   | ReactConsumer<any>
-  | ReactEventComponent<any, any, any>
-  | ReactEventTarget;
+  | ReactEventComponent<any, any, any>;
 
 export type ReactEmpty = null | void | boolean;
 
@@ -95,11 +94,10 @@ export type ReactEventResponder<T, E, C> = {
   displayName: string,
   targetEventTypes?: Array<T>,
   rootEventTypes?: Array<T>,
-  createInitialState?: (props: Object) => Object,
+  getInitialState?: (props: Object) => Object,
   allowMultipleHostChildren: boolean,
   allowEventHooks: boolean,
   onEvent?: (event: E, context: C, props: Object, state: Object) => void,
-  onEventCapture?: (event: E, context: C, props: Object, state: Object) => void,
   onRootEvent?: (event: E, context: C, props: Object, state: Object) => void,
   onMount?: (context: C, props: Object, state: Object) => void,
   onUnmount?: (context: C, props: Object, state: Object) => void,
@@ -109,12 +107,6 @@ export type ReactEventResponder<T, E, C> = {
 export type ReactEventComponent<T, E, C> = {|
   $$typeof: Symbol | number,
   responder: ReactEventResponder<T, E, C>,
-|};
-
-export type ReactEventTarget = {|
-  $$typeof: Symbol | number,
-  displayName?: string,
-  type: Symbol | number,
 |};
 
 export opaque type EventPriority = 0 | 1 | 2;
